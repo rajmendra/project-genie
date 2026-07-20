@@ -11,8 +11,12 @@ import ExpenseMaster from './pages/ExpenseMaster';
 import Notifications from './pages/Notifications';
 import ContactGenie from './pages/ContactGenie';
 import RemittanceMaster from './pages/RemittanceMaster';
-import ComingSoon from './pages/ComingSoon';
 import LeadMaster from './pages/LeadMaster';
+import MemberMaster from './pages/MemberMaster';
+import TeamMaster from './pages/TeamMaster';
+import SessionMaster from './pages/SessionMaster';
+import AccountMaster from './pages/AccountMaster';
+import ComingSoon from './pages/ComingSoon';
 
 export default function App() {
   return (
@@ -27,12 +31,12 @@ export default function App() {
               <Route path="/wallet/balance" element={<ViewBalance />} />
               <Route path="/wallet/history" element={<WalletHistory />} />
               <Route path="/wallet/add-money" element={<AddMoney />} />
-              <Route path="/account-master" element={<ComingSoon />} />
-              <Route path="/team-master" element={<ComingSoon />} />
-              <Route path="/member-master" element={<ComingSoon />} />
+              <Route path="/account-master" element={<AccountMaster />} />
+              <Route path="/team-master" element={<TeamMaster />} />
+              <Route path="/member-master" element={<MemberMaster />} />
               <Route path="/lead-master" element={<LeadMaster />} />
               <Route path="/expense-master" element={<ExpenseMaster />} />
-              <Route path="/session-master" element={<ComingSoon />} />
+              <Route path="/session-master" element={<SessionMaster />} />
               <Route path="/notifications" element={<Notifications />} />
               <Route path="/contact-genie" element={<ContactGenie />} />
               <Route path="/remittance-master" element={<RemittanceMaster />} />

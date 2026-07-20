@@ -12,6 +12,7 @@ import Notifications from './pages/Notifications';
 import ContactGenie from './pages/ContactGenie';
 import RemittanceMaster from './pages/RemittanceMaster';
 import ComingSoon from './pages/ComingSoon';
+import LeadMaster from './pages/LeadMaster';
 
 export default function App() {
   return (
@@ -29,7 +30,7 @@ export default function App() {
               <Route path="/account-master" element={<ComingSoon />} />
               <Route path="/team-master" element={<ComingSoon />} />
               <Route path="/member-master" element={<ComingSoon />} />
-              <Route path="/lead-master" element={<ComingSoon />} />
+              <Route path="/lead-master" element={<LeadMaster />} />
               <Route path="/expense-master" element={<ExpenseMaster />} />
               <Route path="/session-master" element={<ComingSoon />} />
               <Route path="/notifications" element={<Notifications />} />

@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 import connectDB from './config/db.js';
 import authRoutes from './routes/auth.js';
 import sessionRoutes from './routes/sessions.js';
@@ -10,8 +12,10 @@ import notificationRoutes from './routes/notifications.js';
 import messageRoutes from './routes/messages.js';
 import remittanceRoutes from './routes/remittances.js';
 import freezeAlertRoutes from './routes/freezeAlerts.js';
+import leadRoutes from './routes/leads.js';
 
-dotenv.config();
+const __dirname = dirname(fileURLToPath(import.meta.url));
+dotenv.config({ path: join(__dirname, '.env') });
 connectDB();
 
 const app = express();
@@ -26,6 +30,7 @@ app.use('/api/notifications', notificationRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api/remittances', remittanceRoutes);
 app.use('/api/freeze-alerts', freezeAlertRoutes);
+app.use('/api/leads', leadRoutes);
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 

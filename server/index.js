@@ -1,9 +1,7 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-import connectDB from './config/db.js';
 import authRoutes from './routes/auth.js';
 import sessionRoutes from './routes/sessions.js';
 import walletRoutes from './routes/wallet.js';
@@ -13,12 +11,13 @@ import messageRoutes from './routes/messages.js';
 import remittanceRoutes from './routes/remittances.js';
 import freezeAlertRoutes from './routes/freezeAlerts.js';
 import leadRoutes from './routes/leads.js';
+import memberRoutes from './routes/members.js';
+import teamRoutes from './routes/team.js';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-dotenv.config({ path: join(__dirname, '.env') });
-connectDB();
+dotenv.config();
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
@@ -31,6 +30,8 @@ app.use('/api/messages', messageRoutes);
 app.use('/api/remittances', remittanceRoutes);
 app.use('/api/freeze-alerts', freezeAlertRoutes);
 app.use('/api/leads', leadRoutes);
+app.use('/api/members', memberRoutes);
+app.use('/api/team', teamRoutes);
 
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
 
